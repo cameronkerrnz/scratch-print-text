@@ -1,0 +1,18 @@
+apt-get update
+apt-get install imagemagick fontconfig ttf-bitstream-vera ttf-staypuft ttf-summersby ttf-sjfonts ttf-aenigma
+fc-list | grep bitstream
+...
+/usr/share/fonts/truetype/ttf-bitstream-vera/VeraMono.ttf: Bitstream Vera Sans Mono:style=Roman
+...
+
+https://legacy.imagemagick.org/Usage/text/#text_operators
+
+convert -font /usr/share/fonts/truetype/ttf-bitstream-vera/VeraMono.ttf -size 200x200 -background white -gravity center label:B test.png
+
+convert -font /usr/share/fonts/truetype/aenigma/hillock.ttf -size 200x200 -background none -gravity center label:B test.png
+
+# To find which fonts implement Unicode character U+FFFD (used as the replacement glyph)
+
+fc-list :charset=FFFD
+
+convert -font /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf -size 200x200 -background none -gravity center $(LANG=en_US.utf8 printf "label:\uFFFD") test.png
