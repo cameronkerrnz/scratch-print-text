@@ -239,7 +239,6 @@ def generate_glyphs():
     global characters
     global width
     global height
-    global label_specials
     global temp_svg
     global temp_dir
 
